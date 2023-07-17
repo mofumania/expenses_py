@@ -1,0 +1,45 @@
+.wrap{
+  position: relative;
+}
+
+.back_button{
+  font-size: 20px;
+  padding: 5px 10px;
+  margin-top: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.input_fixed_cost{
+  padding: 0 10px 50px;
+}
+
+.input_fixed_cost li{
+  padding: 8px 0;
+}
+
+.input_fixed_cost dl{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_fixed_cost dt{
+  width: 74px;
+  letter-spacing: 0.5em;
+}
+
+.input_fixed_cost dt span{
+  display: inline-block;
+  width: 1.5em;
+}
+
+.input_fixed_cost dd input{
+  width: 5em;
+  font-size: 16px;
+  height: 1.5em;
+}
+
+.list_dot{
+  color: #B78D4A;
+}

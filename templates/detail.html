@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="discription" content="サイトの紹介文を記載">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-ditection" content="telephone=no" />
+  <title>詳 細</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/detail.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <header id="header">
+        <div id="next-prev-button">
+          <a id="prev" class="next-prev-button" href="/detail/{{pre_month}}">‹</a>
+          <a id="next" class="next-prev-button" href="/detail/{{next_month}}">›</a>
+          <!-- <button id="prev" onclick="prev()">‹</button>
+          <button id="next" onclick="next()">›</button> -->
+          <div class="float_clear"></div><!--.float_clear-->
+        </div><!--#next-prev-button-->
+        <h1>{{month}}</h1>
+      </header>
+      <main class="main">
+        <ul id="day_by_day">
+          {% for item in items %}
+          <!-- <li id="day_total">
+            <dl>
+              <dd class="balance">00,000</dd>
+              <dd class="subtotal">00,000</dd> -->
+          <!-- </dl>.day_total -->
+          <!-- </li> -->
+          <li id="day_items">
+            <dl>
+              <dd id="date">{{ item[4][8:10] }}日</dd>
+              <dd id="category">{{ item[3] }}</dd>
+              <dd id="item_name">{{ item[1] }}</dd>
+              <dd id="price">{{ item[2] }}</dd>
+            </dl>
+            <form action="{{ url_for('delete_data_detail') }}" method="post" enctype="multipart/form-data">
+              <input type="hidden" class="input_date" name="month" value="{{ month }}" placeholder="日付" readonly>
+              <button type="submit" class="delete_button" name="delete_id" value="{{ item[0] }}">×</button>
+          </li>
+          {% endfor %}
+        </ul><!--#day_by_day-->
+      </main>
+
+      <footer id="footer">
+        <div class="_bg">
+          <ul>
+            <li><a href="">
+                <dl>
+                  <dd class="list_icon"><i class="fa-regular fa-rectangle-list fa-2x"></i></dd>
+                  <dd class="list_text">詳 細</dd>
+                </dl>
+              </a></li>
+            <li><a href="/">
+                <dl>
+                  <dd class="list_icon"><i class="fa-solid fa-house-chimney fa-2x"></i></dd>
+                  <dd class="list_text">HOME</dd>
+                </dl>
+              </a></li>
+            <li><a href="{{ input_link }}">
+                <dl>
+                  <dd class="list_icon"><i class="fa-solid fa-pen-to-square fa-2x"></i></dd>
+                  <dd class="list_text">入力</dd>
+                </dl>
+              </a></li>
+          </ul>
+        </div><!--._bg-->
+      </footer>
+  </div><!-- ▼.wrap▼ -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>

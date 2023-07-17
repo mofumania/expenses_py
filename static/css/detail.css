@@ -1,0 +1,66 @@
+/*---▼#headerここから▼---*/
+h1{
+  top:5px
+}
+/*---▲#headerここまで▲---*/
+
+/*---▼#mainここから▼---*/
+#day_by_day li{
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+#day_by_day dl{
+  display: flex;
+  justify-content: space-between;
+}
+
+#date{
+  width: 4em;
+}
+
+#category{
+  width: 5em;
+}
+
+#item_name{
+  width: 8em;
+}
+
+#price{
+  width: 3em;
+}
+
+.delete_button{
+  width: 25px;
+  height: 25px;
+  background-color: #67b5bd;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+}
+
+#day_by_day:last-child{
+  margin-bottom: 4px;
+}
+
+/* #day_total{
+  font-size: 14px;
+} */
+
+/* .balance{
+  color: #67b5bd;
+  border: 2px solid #67b5bd;
+  border-radius: 12px;
+  padding: 0px 4px;
+}
+
+.subtotal{
+  color: #e78152;
+} */
+/*---▲#mainここまで▲---*/
+
+/*---▼#footerここから▼---*/
+/*---▲#footerここまで▲---*/

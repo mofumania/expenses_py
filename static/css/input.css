@@ -1,0 +1,118 @@
+/*---▼#headerここから▼---*/
+h1{
+  padding-top: 5px;
+  position: relative;
+}
+
+h1 span{
+  display: inline-block;
+  width: 1.5em;
+}
+/*---▲#headerここまで▲---*/
+
+/*---▼#mainここから▼---*/
+h4{
+  font-size: 20px;
+  padding-bottom: 6px;
+}
+
+#total_price{
+  font-size: 30px;
+  padding: 30px 0;
+}
+
+#total_price dl{
+  display: flex;
+  justify-content: space-between;
+}
+
+#enterd_list{
+  border-top: solid 2px #B78D4A;
+  border-bottom: solid 2px #B78D4A;
+  padding: 10px 0;
+  margin-bottom: 5px;
+}
+
+#enterd_list li{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+#enterd_list dl{
+  display: flex;
+}
+
+#item_name{
+  width: 158px;
+  margin: 0 9px;
+}
+
+#price{
+  width: 3em;
+}
+
+#enterd_list dd{
+  padding: 0 2px;
+}
+
+.delete_button{
+  background-color: #67b5bd;
+  color: #fff;
+  padding: 3px 5px;
+  border: none;
+  border-radius: 6px;
+}
+
+#form_area{
+  margin: 20px 0;
+}
+
+.text_box{
+  height: 1.8em;
+}
+
+#category,.input_category {
+  width: 5em;
+}
+
+#item_name,.input_item {
+  width: 10em;
+}
+
+.input_price {
+  width: 5em;
+}
+
+.input_category,.input_item,.input_price{
+  font-size: 16px;
+}
+
+.input_item{
+  margin: 0 3px;
+}
+
+/* .plus_button{
+  width: 50px;
+  height: 50px;
+  background-color: #67b5bd;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 30px;
+} */
+
+.enter_button{
+  width: 100%;
+  background-color: #e78152;
+  font-size: 18px;
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 25px;
+  border: none;
+  margin-bottom: 20px;
+}
+/*---▲#mainここまで▲---*/
+
+/*---▼#footerここから▼---*/
+/*---▲#footerここまで▲---*/

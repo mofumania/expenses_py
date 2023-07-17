@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="discription" content="サイトの紹介文を記載">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-ditection" content="telephone=no" />
+  <title>家計簿</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/input.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/fixed_cost.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1>{{ month[0:4] }}年{{ month[6:7] }}月固定費</h1>
+      <a href="/" class="back_button">‹</a>
+    </header>
+    <main class="main">
+      <h3 id="total_price">
+        <dl>
+          <dd>¥</dd>
+          <dd>{{ total_price }}</dd>
+        </dl>
+      </h3>
+      <form action="{{ url_for('post_fixed_cost') }}" method="post">
+        <ul class="input_fixed_cost">
+          <li><input type="hidden" class="input_date" name="month" value="{{ month }}" placeholder="日付">
+            {% for fixed_cost in fixed_costs %}
+          </li>
+          <li>
+            <dl>
+              <dt>{{ fixed_cost[2] }}</dt>
+              <dd class="list_dot">・・・・・・・・・・</dd>
+              <dd><input type="text" name="{{ fixed_cost[0] }}" value="{{ fixed_cost[1] }}" required>
+              </dd>
+              <dd></dd>
+            </dl>
+          <li>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <input type="submit" class="enter_button" value="登録">
+      </form>
+    </main>
+
+    <footer id="footer"></footer>
+  </div><!-- ▼.wrap▼ -->
+
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>

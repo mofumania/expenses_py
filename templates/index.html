@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="discription" content="サイトの紹介文を記載">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-ditection" content="telephone=no" />
+  <title>家計簿</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header id="header">
+      <div id="next-prev-button">
+        <button id="prev" class="next-prev-button" onclick="prev()">‹</button>
+        <button id="next" class="next-prev-button" onclick="next()">›</button>
+        <div class="float_clear"></div><!--.float_clear-->
+      </div><!--#next-prev-button-->
+      <h1 id="month"></h1>
+    </header>
+    <main id="main">
+      <div class="main_inner">
+        <div class="chart" style="width: 180px;height: 180px;">
+          <canvas id="myChart"></canvas>
+        </div>
+        <ul class="fixed_cost">
+          <li>
+            <dl>
+              <dd>
+                <h2>固定費</h2>
+              </dd>
+              <dd><a href="{{ link }}"><i class="fa-solid fa-pen-to-square"></a></i></dd>
+            </dl>
+            {% for fixed_cost in fixed_costs %}
+          </li>
+          <li>
+            <dl>
+              <dt>{{ fixed_cost[2] }}</dt>
+              <dd>{{ fixed_cost[1] }}</dd>
+            </dl>
+          </li>
+          {% endfor %}
+          <li>
+            <dl>
+              <dt>合計</dt>
+              <dd>{{ total_price }}</dd>
+            </dl>
+          </li>
+        </ul><!-- .fixed-cost -->
+      </div><!-- .main-inner -->
+      <div id="calendar"></div>
+    </main>
+
+    <footer id="footer">
+      <div class="_bg">
+        <ul>
+          <li><a href="{{ input_detail_link }}">
+              <dl>
+                <dd class="list_icon"><i class="fa-regular fa-rectangle-list fa-2x"></i></dd>
+                <dd class="list_text">詳 細</dd>
+              </dl>
+            </a></li>
+          <li><a href="/">
+              <dl>
+                <dd class="list_icon"><i class="fa-solid fa-house-chimney fa-2x"></i></dd>
+                <dd class="list_text">HOME</dd>
+              </dl>
+            </a></li>
+          <li><a href="{{ input_link }}">
+              <dl>
+                <dd class="list_icon"><i class="fa-solid fa-pen-to-square fa-2x"></i></dd>
+                <dd class="list_text">入力</dd>
+              </dl>
+            </a></li>
+        </ul>
+      </div><!--._bg-->
+    </footer>
+  </div><!-- ▼#wrap▼ -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../static/js/main.js"></script>
+  <script src="../static/js/calendar.js"></script>
+  <script>
+    const ctx=document.getElementById('myChart');
+
+    new Chart(ctx,{
+      type: 'doughnut',
+      data: {
+        // labels: [
+        //   '食材費',
+        //   '交際費',
+        //   '日用品',
+        //   'その他'
+        // ],
+        datasets: [{
+          // label: 'My First Dataset',
+          data: [{{total_food_cost}},{{total_daily_item_cost}},{{total_entertainment_cost}},{{total_other_cost}}],
+      backgroundColor: [
+      'rgb(223, 81, 68)',
+      'rgb(254, 202, 118)',
+      'rgb(103, 181, 189)',
+      '#e78152'
+    ],
+      hoverOffset: 4
+        }]
+      }
+    });
+
+  </script>
+</body>
+
+</html>
