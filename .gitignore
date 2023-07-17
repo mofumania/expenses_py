@@ -1,0 +1,7 @@
+.vscode/
+.bin/
+test.sqlite3
+todo.db
+expenses.db
+include/
+pyvenv.cfg
